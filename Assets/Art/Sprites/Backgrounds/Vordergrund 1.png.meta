@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Vordergrund 1_0: 623717299948994254
+      Vordergrund 1_1: -2775698086269706197
+      Vordergrund 1_2: 6350557483342074165
+      Vordergrund 1_3: 5400208488771151388
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

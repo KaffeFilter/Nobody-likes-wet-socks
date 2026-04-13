@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Random dirt f\xFCr wo auch immer mans braucht_0": 5114341184463072727
+      "Random dirt f\xFCr wo auch immer mans braucht_1": 7705081944453391337
+      "Random dirt f\xFCr wo auch immer mans braucht_2": -5858658188311980523
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

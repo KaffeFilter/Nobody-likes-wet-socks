@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ketten_0: 6112428464307549958
+      Ketten_1: 8210689125172554556
+      Ketten_2: 5560057609399216866
+      Ketten_3: -5113074101491029309
+      Ketten_4: 480601962886668191
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

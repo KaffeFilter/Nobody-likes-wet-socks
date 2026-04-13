@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Ger\xE4te_0": 3416524594823727912
+      "Ger\xE4te_1": 8598964987205513832
+      "Ger\xE4te_2": 441204873852735865
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
