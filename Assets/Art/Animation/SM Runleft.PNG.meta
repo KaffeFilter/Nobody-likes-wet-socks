@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: 8fa993de280e770469f0e627a44ce186
+guid: 1acd362a78e4b214d9fbc51f3e51be87
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4860068879519884093
-    second: SM Idle_0
+      213: 8771686122911229732
+    second: SM Runleft_0
   - first:
-      213: -5754505757659759859
-    second: SM Idle_1
+      213: -1903162811658487111
+    second: SM Runleft_1
   - first:
-      213: -483134767925561299
-    second: SM Idle_2
+      213: -1376780442880531140
+    second: SM Runleft_2
   - first:
-      213: -158360931158235765
-    second: SM Idle_3
+      213: 4115009410591721500
+    second: SM Runleft_3
   - first:
-      213: 5146464608987118741
-    second: SM Idle_4
+      213: 4847092644165232315
+    second: SM Runleft_4
   - first:
-      213: 3001579613863474481
-    second: SM Idle_5
+      213: -2981112580367105492
+    second: SM Runleft_5
+  - first:
+      213: 9194750013326224788
+    second: SM Runleft_6
+  - first:
+      213: 7337799723262082000
+    second: SM Runleft_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -62,7 +68,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -115,100 +121,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SM Idle_0
+      name: SM Runleft_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 64
-        width: 41
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3cc59449a119d8cb0800000000000000
-      internalID: -4860068879519884093
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SM Idle_1
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 64
-        width: 39
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d0bffb88083e320b0800000000000000
-      internalID: -5754505757659759859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SM Idle_2
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 64
-        width: 37
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d28f7230d7f8b49f0800000000000000
-      internalID: -483134767925561299
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SM Idle_3
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 0
-        width: 41
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b85630872936dcdf0800000000000000
-      internalID: -158360931158235765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SM Idle_4
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 0
-        width: 40
+        x: 3
+        y: 128
+        width: 48
         height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -218,19 +136,129 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59cfbc37b4aeb6740800000000000000
-      internalID: 5146464608987118741
+      spriteID: 427e85ded0a4bb970800000000000000
+      internalID: 8771686122911229732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SM Idle_5
+      name: SM Runleft_1
       rect:
         serializedVersion: 2
-        x: 139
-        y: 0
-        width: 41
+        x: 70
+        y: 128
+        width: 45
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9babc55918b9695e0800000000000000
+      internalID: -1903162811658487111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SM Runleft_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 128
+        width: 49
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c35a6605b71b4ece0800000000000000
+      internalID: -1376780442880531140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SM Runleft_3
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 65
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1885b5b1437b1930800000000000000
+      internalID: 4115009410591721500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SM Runleft_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 64
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb6a0e03415544340800000000000000
+      internalID: 4847092644165232315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SM Runleft_5
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 67
+        width: 50
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2245cb17e5f0a6d0800000000000000
+      internalID: -2981112580367105492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SM Runleft_6
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 2
+        width: 48
         height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -240,8 +268,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 135f26971c0c7a920800000000000000
-      internalID: 3001579613863474481
+      spriteID: 49de3d6db605a9f70800000000000000
+      internalID: 9194750013326224788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SM Runleft_7
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 0
+        width: 40
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dbfef198f915d560800000000000000
+      internalID: 7337799723262082000
       vertices: []
       indices: 
       edges: []
@@ -260,12 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SM Idle_0: -4860068879519884093
-      SM Idle_1: -5754505757659759859
-      SM Idle_2: -483134767925561299
-      SM Idle_3: -158360931158235765
-      SM Idle_4: 5146464608987118741
-      SM Idle_5: 3001579613863474481
+      SM Runleft_0: 8771686122911229732
+      SM Runleft_1: -1903162811658487111
+      SM Runleft_2: -1376780442880531140
+      SM Runleft_3: 4115009410591721500
+      SM Runleft_4: 4847092644165232315
+      SM Runleft_5: -2981112580367105492
+      SM Runleft_6: 9194750013326224788
+      SM Runleft_7: 7337799723262082000
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

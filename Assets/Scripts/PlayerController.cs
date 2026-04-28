@@ -10,6 +10,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour, DamageInterface 
 {
     [SerializeField] private Rigidbody2D rigidbody2d;
+    [SerializeField] private Animator animator;
 
     #region PlayerStats
     [SerializeField] private float speed;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour, DamageInterface
 
     private void OnEnable()
     {
+        animator = GetComponent<Animator>();
         movement.action.Enable();
         attack.action.Enable();
         changeGravity.action.Enable();
@@ -58,11 +60,25 @@ public class PlayerController : MonoBehaviour, DamageInterface
     private void Walking(InputAction.CallbackContext ctx)
     {
         inputdirektion = ctx.ReadValue<Vector2>().x;
+        if (inputdirektion != 0)
+        {
+            animator.SetBool("IsRunning", true);
+            if (inputdirektion <= 0.1)
+            {
+                animator.SetBool("LookingLeft", true);
+            }
+            else
+            {
+                animator.SetBool("LookingLeft", false);
+            }
+        }
+      
     }
 
     private void StopMovement(InputAction.CallbackContext ctx)
     {
         inputdirektion = 0;
+        animator.SetBool("IsRunning", false);
     }
 
     private void JumpAction(InputAction.CallbackContext ctx)
@@ -99,6 +115,7 @@ public class PlayerController : MonoBehaviour, DamageInterface
     private void Update()
     {
         rigidbody2d.linearVelocity = new Vector2(inputdirektion * speed ,rigidbody2d.linearVelocity.y);
+        animator.SetFloat("RunningInput", rigidbody2d.linearVelocity.x);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
