@@ -1,24 +1,27 @@
-using System;
 using System.Collections;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using Vector2 = System.Numerics.Vector2;
+
 
 
 public class RatEnemy : EnemyParentsClass
 {
-
+    private bool attackHasAlreadyStartet;
+    [SerializeField] Animator animator;
     public enum EnemyState
     {
         Patrolingstate,
         Attackingstate,
-        Chasingstate
+        
     }
 
-    [SerializeField] private EnemyState currentState = EnemyState.Patrolingstate;
+    [SerializeField] public EnemyState currentState = EnemyState.Patrolingstate;
 
-    
+
+    private void Awake()
+    {
+       animator = GetComponent<Animator>();
+    }
 
     private void FixedUpdate()
     { 
@@ -29,9 +32,6 @@ public class RatEnemy : EnemyParentsClass
                 break;
             case EnemyState.Attackingstate:
                 StartAttack();
-                break;
-            case EnemyState.Chasingstate:
-                StartChasing();
                 break;
          }
     }
@@ -49,39 +49,45 @@ public class RatEnemy : EnemyParentsClass
             if (transform.position == patrolEndPosition)
             {
                 mustSwapPoints = true;
+                animator.SetBool("LookingLeft" , true);
             }
         }
         else
         {
             transform.SetPositionAndRotation(Vector3.MoveTowards(transform.position, patrolStartPostion, movementSpeed),quaternion.identity);
-            currentState = EnemyState.Attackingstate;
+            
             if (transform.position == patrolStartPostion)
             {
                 mustSwapPoints = false;
+                animator.SetBool("LookingLeft" , false);
             }
         }
     }
     private void StartAttack()
     {
-        StartCoroutine(AttackCorutine());
-    }
-    
-    private void StartChasing()
-    {
-        throw new NotImplementedException();
+        if (!attackHasAlreadyStartet)
+        {
+            StartCoroutine(AttackCorutine());
+        }
     }
     #endregion
 
 
     IEnumerator AttackCorutine()
     {
-        Debug.Log("In attack corutine");
-        yield return new  WaitForSeconds(2);
-        Debug.Log("First wait");
-        attackHitbox.enabled = true;
-        yield return new WaitForSeconds(1);
-        attackHitbox.enabled = false;
-        Debug.Log("Last wait");
-        currentState = EnemyState.Patrolingstate;
+      
+            attackHasAlreadyStartet = true;
+            animator.SetBool("IsAttacking", true);
+            Debug.Log("In attack corutine");
+            yield return new  WaitForSeconds(1f);
+            Debug.Log("First wait");
+            attackHitbox.GetComponent<EnemyAttack>().AttackStart();
+            yield return new WaitForSeconds(0.2f);
+            attackHitbox.GetComponent<EnemyAttack>().AttackEnd();
+
+            Debug.Log("Last wait");
+            currentState = EnemyState.Patrolingstate;
+            attackHasAlreadyStartet = false;
+            animator.SetBool("IsAttacking", false);
     }
 }

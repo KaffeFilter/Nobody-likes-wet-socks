@@ -1,13 +1,14 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using TMPro;
 
 
 public class GameMainManager : MonoBehaviour
 {
     public static GameMainManager Instance;
-    
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(this);
@@ -16,7 +17,12 @@ public class GameMainManager : MonoBehaviour
 
     public void Gameover()
     {
-        Application.Quit();
-        SceneManager.LoadScene(sceneBuildIndex: 1);
+        StartCoroutine(GameOverRoutine());
+    }
+
+    IEnumerator GameOverRoutine()
+    {
+        yield return null;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

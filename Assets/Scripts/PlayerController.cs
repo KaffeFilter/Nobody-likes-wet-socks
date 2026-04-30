@@ -1,6 +1,8 @@
 
 using System;
 using System.Collections;
+using System.Globalization;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,7 +12,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour, DamageInterface 
 {
     [SerializeField] private Rigidbody2D rigidbody2d;
-    [SerializeField] private Animator animator;
+    private Animator animator;
+    [SerializeField] private Canvas canvas;
+    private TextMeshProUGUI textMeshProUGUI;
 
     #region PlayerStats
     [SerializeField] private float speed;
@@ -43,7 +47,6 @@ public class PlayerController : MonoBehaviour, DamageInterface
     {
         animator = GetComponent<Animator>();
         movement.action.Enable();
-        attack.action.Enable();
         changeGravity.action.Enable();
         jump.action.Enable();
         movement.action.performed += Walking;
@@ -51,7 +54,8 @@ public class PlayerController : MonoBehaviour, DamageInterface
         jump.action.performed += JumpAction;
         currentHealth = maxHealth;
         //Getting Needed Components
-
+        textMeshProUGUI =  (TextMeshProUGUI)canvas.GetComponentInChildren(typeof(TextMeshProUGUI));
+        textMeshProUGUI.text = currentHealth.ToString() + " HP";
     }
 
     #endregion
@@ -60,25 +64,12 @@ public class PlayerController : MonoBehaviour, DamageInterface
     private void Walking(InputAction.CallbackContext ctx)
     {
         inputdirektion = ctx.ReadValue<Vector2>().x;
-        if (inputdirektion != 0)
-        {
-            animator.SetBool("IsRunning", true);
-            if (inputdirektion <= 0.1)
-            {
-                animator.SetBool("LookingLeft", true);
-            }
-            else
-            {
-                animator.SetBool("LookingLeft", false);
-            }
-        }
-      
     }
 
     private void StopMovement(InputAction.CallbackContext ctx)
     {
         inputdirektion = 0;
-        animator.SetBool("IsRunning", false);
+        
     }
 
     private void JumpAction(InputAction.CallbackContext ctx)
@@ -105,8 +96,12 @@ public class PlayerController : MonoBehaviour, DamageInterface
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        textMeshProUGUI.text = currentHealth.ToString() + " HP";
         if (currentHealth <= 0)
         {
+            movement.action.Disable();
+            changeGravity.action.Disable();
+            jump.action.Disable();
             GameMainManager.Instance.Gameover();
         }
     }
@@ -115,18 +110,53 @@ public class PlayerController : MonoBehaviour, DamageInterface
     private void Update()
     {
         rigidbody2d.linearVelocity = new Vector2(inputdirektion * speed ,rigidbody2d.linearVelocity.y);
-        animator.SetFloat("RunningInput", rigidbody2d.linearVelocity.x);
+        if (rigidbody2d.linearVelocity.x == 0)
+        {
+            animator.SetBool("IsRunning", false);
+        }
+        if (rigidbody2d.linearVelocity.x != 0)
+        {
+            animator.SetBool("IsRunning", true);
+            if (rigidbody2d.linearVelocity.x <= 0.1)
+            {
+                animator.SetBool("LookingLeft", true);
+            }
+            else
+            {
+                animator.SetBool("LookingLeft", false);
+            }
+        }
+
+        if (rigidbody2d.gravityScale == 2f)
+        {
+            animator.SetBool("GravityInverted",false);
+        }
+        else
+        {
+            animator.SetBool("GravityInverted",true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-            if (isJumping & other.gameObject.CompareTag("Floor"))
-            {
-                isJumping = false;
-                hasChangedGravity = false;
-                rigidbody2d.linearDamping = 0f;
-            }
+        if (!(isJumping & other.gameObject.CompareTag("Floor"))) return;
+        isJumping = false;
+        hasChangedGravity = false;
+        rigidbody2d.linearDamping = 0f;
     }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+         {
+             if (other.gameObject.CompareTag("Floor"))
+             {
+                 isJumping = true;
+             }
+         }
+    }
+
+
+   
 
     #region Corutines
 

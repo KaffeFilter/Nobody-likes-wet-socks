@@ -10,7 +10,6 @@ public abstract class EnemyParentsClass : MonoBehaviour
     [SerializeField] public Vector3 patrolStartPostion;
     [SerializeField] public Vector3 patrolEndPosition;
     public bool mustSwapPoints;
-    [SerializeField] public Collider2D attackHitbox;
-    [SerializeField] private Collider2D selfHitbox;
-    [SerializeField] private Collider2D enemyDetectionRadius;
+    [SerializeField] public MonoBehaviour attackHitbox;
+    
 }
